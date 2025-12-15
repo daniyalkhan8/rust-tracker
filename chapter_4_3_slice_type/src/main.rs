@@ -1,0 +1,33 @@
+fn main() {
+    let sentence = String::from("Hello world!");
+
+    let word = first_word(&sentence[..]);
+    let word = first_word(&sentence[..4]);
+    let word = first_word(&sentence);
+
+    println!("{word}");
+
+    let sentence = "Hello World 2";
+
+    let word = first_word(&sentence[..]);
+    let word = first_word(sentence);
+    let word = first_word(&sentence[..8]);
+
+    println!("{word}");
+
+    let a = [1, 2, 3, 4, 5, 6];
+    let slice = &a[1..3];
+    assert_eq!(slice, &[2, 3]);
+}
+
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
