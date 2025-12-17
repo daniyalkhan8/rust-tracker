@@ -37,4 +37,6 @@ fn main() {
     let color = Color(0, 0, 0);
 
     let Point(x, y, z) = point;
+
+    let always_equal = AlwaysEqual;
 }
